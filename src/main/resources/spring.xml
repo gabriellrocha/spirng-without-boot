@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Você pode usar qualquer TAG no XML, desde que esteja definida em um DTD-->
+
+    <!-- bean definitions here -->
+    <!-- cada definição de bean é um objeto que o IoC criará-->
+
+    <bean class="org.example.Developer" id="dev">
+        <!-- <property name="age" value="20"/> Injeção de valor simple via set -->
+
+        <!-- <constructor-arg index="0" value="25"/> Injeção de valor simple via construtor-->
+        <!-- <constructor-arg index="1" value="Gabriel"/> Injeção de valor simple via construtor-->
+
+        <property name="laptop" ref="lap"/> <!--ID de Objeto, via setter - Equivalente ao @autowired do spring boot-->
+        <constructor-arg ref="lap"/> <!--ID de Objeto, via constructor -->
+
+    </bean>
+
+
+
+
+    <bean class="org.example.Laptop" id="lap">
+    </bean>
+
+</beans>
